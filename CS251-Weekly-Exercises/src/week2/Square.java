@@ -7,7 +7,7 @@ public class Square extends Rectangle {
     public Square(){}
 
     public Square(double side){
-        super(side, side);
+        this.side = side;
     }
 
     public Square(double side, String color, boolean filled){
@@ -22,14 +22,12 @@ public class Square extends Rectangle {
         this.side = side;
     }
 
-    @Override
-    public double getArea() {
-        return side * side;
+    public void setWidth(double w){
+        width = w;
     }
 
-    @Override
-    public double getPerimeter() {
-        return 4 * side;
+    public void setLength(double l){
+        length = l;
     }
 
     @Override
