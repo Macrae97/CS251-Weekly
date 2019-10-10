@@ -31,7 +31,14 @@ public class GradeStatistics {
             System.out.println("The median is: " + getMedian(studentGrades));
             System.out.println("The minimum is: " + studentGrades[0]);
             System.out.println("The maximum is: " + studentGrades[studentGrades.length-1]);
-            System.out.println("The standard deviation is: ");
+
+            //convert int array to double
+            double[] numArray = new double[studentGrades.length];
+            for(int i=0; i<studentGrades.length; i++) {
+                numArray[i] = studentGrades[i];
+            }
+
+            System.out.println("The standard deviation is: " + String.format("%.2f", getStandardDeviation(numArray)));
 
             finished = true;
         }
@@ -69,6 +76,22 @@ public class GradeStatistics {
             median = (double) grades[grades.length / 2];
         }
         return median;
+    }
+
+    //bits of code from https://www.programiz.com/java-programming/examples/standard-deviation
+    private double getStandardDeviation(double numArray[]) {
+
+        double sum = 0.0, standardDeviation = 0.0;
+        int length = numArray.length;
+
+        for(double num : numArray) {
+            sum += num;
+        }
+        double mean = sum/length;
+        for(double num: numArray) {
+            standardDeviation += Math.pow(num - mean, 2);
+        }
+        return Math.sqrt(standardDeviation/length);
     }
 
 }
