@@ -7,8 +7,13 @@ public class Main {
         MatchCalculator matchCalculator = new MatchCalculator();
 
         matchCalculator.calculate(5);
+        matchCalculator.calculate(10);
         matchCalculator.calculate(26);
-        matchCalculator.calculate(268);
+        matchCalculator.calculate(50);
+        matchCalculator.calculate(100);
+        matchCalculator.calculate(35);
+        matchCalculator.calculate(26);
+        matchCalculator.calculate(3);
 
     }
 }

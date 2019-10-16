@@ -5,22 +5,28 @@ import java.util.Random;
 
 public class MatchCalculator {
 
-    public MatchCalculator(){}
-
-    private int numberOfMatches = 0;
+    public MatchCalculator(){
+    }
 
     public void calculate(int numberOfPeople){
 
-        ArrayList<Integer> birthdays = new ArrayList<>(); // Stores people's birthdays
+        int numberOfMatches = 0;
+
+        // Stores people's birthdays
+        ArrayList<Integer> birthdays = new ArrayList<>();
+        //random to be used to generate random birthdays
+        Random random = new Random();
 
         // Populates the birthdays array
         for (int personNumber = 0; personNumber < numberOfPeople; personNumber++) {
-            birthdays.add(getRandInt(1, 365));
+            int birthday = random.nextInt(365) + 1;
+            birthdays.add(birthday);
         }
+
         // Checks each person's birthday against everyone else's
         for (int i = 0; i < birthdays.size(); i++) {
             for (int j = i + 1; j < birthdays.size(); j++) {
-                // If birthdays match, marks trial as a success jumps to next trail
+                // If it finds a birthday match, increment numberOfMatches and break out of loop
                 if ((birthdays.get(i).equals(birthdays.get(j)))) {
                     numberOfMatches += 1;
                     break;
@@ -28,15 +34,13 @@ public class MatchCalculator {
             }
         }
 
+        //calculate percentage
         double matchPercentage = ((double)numberOfMatches / numberOfPeople * 100);
 
-        System.out.println("Out of " + numberOfPeople + " the number of birthday matches " + numberOfMatches + ". A match rate of " + matchPercentage + "%.");
+        //print results
+        System.out.println( "Out of " + numberOfPeople +
+                            " the number of birthday matches " + numberOfMatches +
+                            ". A match rate of " + String.format("%.2f", matchPercentage) + "%.");
     }
 
-    private int getRandInt(int lowerBound, int upperBound) {
-
-        // Returns random integer between lowerBound and upperBound
-        Random random = new Random();
-        return random.nextInt(upperBound - lowerBound + 1) + lowerBound;
-    }
 }
