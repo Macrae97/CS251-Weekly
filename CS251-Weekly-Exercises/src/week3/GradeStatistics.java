@@ -49,7 +49,7 @@ public class GradeStatistics {
             for (int i = 0; i < students; i++) {
                 int grade = -1;
                 while(grade < 0 || grade > 100){
-                    System.out.println("Enter the grade for student " + (i+1) + " (0-100");
+                    System.out.println("Enter the grade for student " + (i+1) + " (0-100)");
                     grade = parser.getInput();
                 }
                 studentGrades[i] = grade;

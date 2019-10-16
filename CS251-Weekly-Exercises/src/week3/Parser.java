@@ -11,7 +11,7 @@ public class Parser {
     }
 
     //The next command from the user.
-    protected int getInput() {
+    public int getInput() {
 
         String inputLine;   // will hold the full input line
         int command = 0;
