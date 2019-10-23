@@ -1,4 +1,4 @@
-package week5;
+package week5.bubble_sort;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,15 +18,15 @@ public class Main {
 
         BubbleSort bubbleSort = new BubbleSort();
 
-        listToSort = bubbleSort.run(listToSort);
+        bubbleSort.run(listToSort);
 
         long end = System.nanoTime();
 
         for (int i = 0; i < listToSort.size(); i++){
-
+            System.out.print(listToSort.get(i) + ", ");
         }
 
-        System.out.println("The algorithm ran in " + (end -start) + " nanoseconds");
+        System.out.println("\nThe algorithm ran in " + (end -start) + " nanoseconds");
 
     }
 }
